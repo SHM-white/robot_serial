@@ -141,6 +141,22 @@ public:
         //modeCallback
         serial.registerCallback(0x15, [this](const uint8_t& msg) {
             robot_serial::msg::Mode mode;
+            switch (msg) {
+                case 0:
+                    mode.mode = 0;
+                    break;
+                case 1:
+                    mode.mode = 1;
+                    mode.config.push_back(0);
+                    break;
+                case 2:
+                    mode.mode = 1;
+                    mode.config.push_back(1);
+                    break;
+                case 3:
+                    mode.mode = 2;
+                    break;
+            }
             mode.mode = msg;
             modePublisher->publish(mode);
         });
