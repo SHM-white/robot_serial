@@ -15,7 +15,6 @@
 #include "robot_serial/msg/aim.hpp"
 #include "robot_serial/msg/armor.hpp"
 #include "robot_serial/msg/dial_switch.hpp"
-#include "robot_serial/msg/exchange.hpp"
 #include "robot_serial/msg/gimbal.hpp"
 #include "robot_serial/msg/spinning_control.hpp"
 #include "robot_serial/msg/mode.hpp"
