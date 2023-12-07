@@ -18,11 +18,19 @@ endif ()
 
 # find dependencies and libraries
 find_package(ament_cmake REQUIRED)
-find_package(rclcpp REQUIRED)
-find_package(std_msgs REQUIRED)
-find_package(sensor_msgs REQUIRED)
-find_package(nav_msgs REQUIRED)
-find_package(geometry_msgs REQUIRED)
+
+set(AMENT_DEPENDENCIES
+        rclcpp
+        std_msgs
+        sensor_msgs
+        nav_msgs
+        geometry_msgs
+)
+
+foreach (AMENT_DEPENDENCY ${AMENT_DEPENDENCIES})
+    find_package(${AMENT_DEPENDENCY} REQUIRED)
+endforeach ()
+
 find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
@@ -35,15 +43,6 @@ rosidl_generate_interfaces(${PROJECT_NAME}
         "msg/SpinningControl.msg"
         DEPENDENCIES std_msgs
 )
-
-set(AMENT_DEPENDENCIES
-        rclcpp
-        std_msgs
-        sensor_msgs
-        nav_msgs
-        geometry_msgs
-)
-
 
 find_package(OpenCV REQUIRED)
 find_package(Eigen3 REQUIRED)
