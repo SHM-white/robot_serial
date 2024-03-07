@@ -188,6 +188,8 @@ public:
         autoAimSubscription = create_subscription<robot_serial::msg::Aim>("/robot/auto_aim", 1,
                                                                           std::bind(&RobotSerial::aimCallback, this,
                                                                                     std::placeholders::_1));
+
+        serial.spin(true);
     }
 };
 

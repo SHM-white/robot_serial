@@ -5,7 +5,7 @@
 #ifndef SERIALPRO_SERIALPRO_H
 #define SERIALPRO_SERIALPRO_H
 
-#define MAX_READ_ONCE_CHAR 40
+#define MAX_READ_ONCE_CHAR 200
 
 #include <atomic>
 #include <string>
